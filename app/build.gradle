@@ -88,7 +88,7 @@ android {
         versionCode 204
         versionName "3.60"
 
-        applicationId "io.stormbird.wallet"
+        applicationId "com.gemjar.wallet"
         minSdkVersion 23
         targetSdkVersion 32
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'

@@ -13,6 +13,7 @@ buildscript {
     dependencies {
         classpath "gradle.plugin.com.worker8.android_lint_reporter:android_lint_reporter:2.1.0"
         classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.20.0-RC1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.10"
         classpath "com.dicedmelon.gradle:jacoco-android:0.1.5"
     }
 }

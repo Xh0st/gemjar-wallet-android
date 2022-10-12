@@ -5,6 +5,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import android.content.Context;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
 import com.alphawallet.app.entity.CurrencyItem;
 import com.alphawallet.app.entity.LocaleItem;
 import com.alphawallet.app.entity.Transaction;
@@ -149,5 +152,14 @@ public class NewSettingsViewModel extends BaseViewModel {
 
     public void setMarshMallowWarning(boolean shown) {
         preferenceRepository.setMarshMallowWarning(shown);
+    }
+    public void setBiometricState(boolean state)
+    {
+        preferenceRepository.setBiometricState(state);
+    }
+
+    public boolean getBiometricState()
+    {
+        return preferenceRepository.getBiometricState();
     }
 }

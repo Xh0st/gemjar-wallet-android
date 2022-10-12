@@ -99,7 +99,7 @@ import timber.log.Timber;
 @HiltViewModel
 public class HomeViewModel extends BaseViewModel {
     private final String TAG = "HVM";
-    public static final String ALPHAWALLET_DIR = "AlphaWallet";
+    public static final String ALPHAWALLET_DIR = "GemjarWallet";
 
     private final MutableLiveData<NetworkInfo> defaultNetwork = new MutableLiveData<>();
     private final MutableLiveData<Transaction[]> transactions = new MutableLiveData<>();

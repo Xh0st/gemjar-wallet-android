@@ -44,6 +44,7 @@ import com.alphawallet.app.interact.GenericWalletInteract;
 import com.alphawallet.app.util.LocaleUtils;
 import com.alphawallet.app.util.UpdateUtils;
 import com.alphawallet.app.viewmodel.NewSettingsViewModel;
+import com.alphawallet.app.widget.AWalletConfirmationDialog;
 import com.alphawallet.app.widget.NotificationView;
 import com.alphawallet.app.widget.SettingsItemView;
 import com.google.android.material.card.MaterialCardView;
@@ -57,31 +58,31 @@ import io.reactivex.schedulers.Schedulers;
 @AndroidEntryPoint
 public class NewSettingsFragment extends BaseFragment
 {
-    ActivityResultLauncher<Intent> handleBackupClick = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            result ->
+    ActivityResultLauncherIntent handleBackupClick = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            result -
             {
-                String keyBackup = "";
+                String keyBackup = ;
                 boolean noLockScreen = false;
                 Intent data = result.getData();
-                if (data != null) keyBackup = data.getStringExtra("Key");
-                if (data != null) noLockScreen = data.getBooleanExtra("nolock", false);
+                if (data != null) keyBackup = data.getStringExtra(Key);
+                if (data != null) noLockScreen = data.getBooleanExtra(nolock, false);
 
                 Bundle b = new Bundle();
                 b.putBoolean(C.HANDLE_BACKUP, result.getResultCode() == RESULT_OK);
-                b.putString("Key", keyBackup);
-                b.putBoolean("nolock", noLockScreen);
+                b.putString(Key, keyBackup);
+                b.putBoolean(nolock, noLockScreen);
                 getParentFragmentManager().setFragmentResult(C.HANDLE_BACKUP, b);
             });
 
-    ActivityResultLauncher<Intent> networkSettingsHandler = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            result ->
+    ActivityResultLauncherIntent networkSettingsHandler = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            result -
             {
-                //send instruction to restart tokenService
+                send instruction to restart tokenService
                 getParentFragmentManager().setFragmentResult(RESET_TOKEN_SERVICE, new Bundle());
             });
 
-    ActivityResultLauncher<Intent> advancedSettingsHandler = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            result ->
+    ActivityResultLauncherIntent advancedSettingsHandler = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            result -
             {
                 Intent data = result.getData();
                 if (data == null) return;
@@ -99,14 +100,14 @@ public class NewSettingsFragment extends BaseFragment
                 }
             });
 
-    ActivityResultLauncher<Intent> updateLocale = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            result ->
+    ActivityResultLauncherIntent updateLocale = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            result -
             {
                 updateLocale(result.getData());
             });
 
-    ActivityResultLauncher<Intent> updateCurrency = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            result ->
+    ActivityResultLauncherIntent updateCurrency = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            result -
             {
                 updateCurrency(result.getData());
             });
@@ -145,8 +146,8 @@ public class NewSettingsFragment extends BaseFragment
     {
         viewModel = new ViewModelProvider(this)
                 .get(NewSettingsViewModel.class);
-        viewModel.defaultWallet().observe(getViewLifecycleOwner(), this::onDefaultWallet);
-        viewModel.backUpMessage().observe(getViewLifecycleOwner(), this::backupWarning);
+        viewModel.defaultWallet().observe(getViewLifecycleOwner(), thisonDefaultWallet);
+        viewModel.backUpMessage().observe(getViewLifecycleOwner(), thisbackupWarning);
         LocaleUtils.setActiveLocale(getContext());
 
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
@@ -175,12 +176,12 @@ public class NewSettingsFragment extends BaseFragment
     private void initNotificationView(View view)
     {
         notificationView = view.findViewById(R.id.notification);
-        if (android.os.Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
+        if (android.os.Build.VERSION.SDK_INT = Build.VERSION_CODES.M)
         {
             notificationView.setTitle(getContext().getString(R.string.title_version_support_warning));
             notificationView.setMessage(getContext().getString(R.string.message_version_support_warning));
             notificationView.setPrimaryButtonText(getContext().getString(R.string.hide_notification));
-            notificationView.setPrimaryButtonListener(() ->
+            notificationView.setPrimaryButtonListener(() -
             {
                 notificationView.setVisibility(View.GONE);
                 viewModel.setMarshMallowWarning(true);
@@ -195,7 +196,7 @@ public class NewSettingsFragment extends BaseFragment
     @Override
     public void signalUpdate(int updateVersion)
     {
-        //add wallet update signal to adapter
+        add wallet update signal to adapter
         pendingUpdate = updateVersion;
         checkPendingUpdate(getView());
     }
@@ -221,40 +222,40 @@ public class NewSettingsFragment extends BaseFragment
                 new SettingsItemView.Builder(getContext())
                         .withIcon(R.drawable.ic_settings_wallet_address)
                         .withTitle(R.string.title_show_wallet_address)
-                        .withListener(this::onShowWalletAddressSettingClicked)
+                        .withListener(thisonShowWalletAddressSettingClicked)
                         .build();
 
         changeWalletSetting =
                 new SettingsItemView.Builder(getContext())
                         .withIcon(R.drawable.ic_settings_change_wallet)
                         .withTitle(R.string.title_change_add_wallet)
-                        .withListener(this::onChangeWalletSettingClicked)
+                        .withListener(thisonChangeWalletSettingClicked)
                         .build();
 
         backUpWalletSetting =
                 new SettingsItemView.Builder(getContext())
                         .withIcon(R.drawable.ic_settings_backup)
                         .withTitle(R.string.title_back_up_wallet)
-                        .withListener(this::onBackUpWalletSettingClicked)
+                        .withListener(thisonBackUpWalletSettingClicked)
                         .build();
 
         showSeedPhrase = new SettingsItemView.Builder(getContext())
                 .withIcon(R.drawable.ic_settings_show_seed)
                 .withTitle(R.string.show_seed_phrase)
-                .withListener(this::onShowSeedPhrase) //onShow
+                .withListener(thisonShowSeedPhrase) onShow
                 .build();
 
         nameThisWallet = new SettingsItemView.Builder(getContext())
                 .withIcon(R.drawable.ic_settings_name_this_wallet)
                 .withTitle(R.string.name_this_wallet)
-                .withListener(this::onNameThisWallet)
+                .withListener(thisonNameThisWallet)
                 .build();
 
         walletConnectSetting =
                 new SettingsItemView.Builder(getContext())
                         .withIcon(R.drawable.ic_wallet_connect)
                         .withTitle(R.string.title_wallet_connect)
-                        .withListener(this::onWalletConnectSettingClicked)
+                        .withListener(thisonWalletConnectSettingClicked)
                         .build();
 
         notificationsSetting =
@@ -262,56 +263,58 @@ public class NewSettingsFragment extends BaseFragment
                         .withType(SettingsItemView.Type.TOGGLE)
                         .withIcon(R.drawable.ic_settings_notifications)
                         .withTitle(R.string.title_notifications)
-                        .withListener(this::onNotificationsSettingClicked)
+                        .withListener(thisonNotificationsSettingClicked)
                         .build();
 
         changeLanguage = new SettingsItemView.Builder(getContext())
                 .withIcon(R.drawable.ic_settings_language)
                 .withTitle(R.string.title_change_language)
-                .withListener(this::onChangeLanguageClicked)
+                .withListener(thisonChangeLanguageClicked)
                 .build();
 
         changeCurrency = new SettingsItemView.Builder(getContext())
                 .withIcon(R.drawable.ic_currency)
                 .withTitle(R.string.settings_locale_currency)
-                .withListener(this::onChangeCurrencyClicked)
+                .withListener(thisonChangeCurrencyClicked)
                 .build();
 
-//        biometricsSetting =
-//                new SettingsItemView.Builder(getContext())
-//                        .withType(SettingsItemView.Type.TOGGLE)
-//                        .withIcon(R.drawable.ic_settings_biometrics)
-//                        .withTitle(R.string.title_biometrics)
-//                        .withListener(this::onBiometricsSettingClicked)
-//                        .build();
+        biometricsSetting =
+                new SettingsItemView.Builder(getContext())
+                        .withType(SettingsItemView.Type.TOGGLE)
+                        .withIcon(R.drawable.ic_settings_biometrics)
+                        .withTitle(R.string.title_biometrics)
+                        .withListener(thisonBiometricsSettingClicked)
+                        .build();
 
         selectNetworksSetting =
                 new SettingsItemView.Builder(getContext())
                         .withIcon(R.drawable.ic_settings_networks)
                         .withTitle(R.string.select_active_networks)
-                        .withListener(this::onSelectNetworksSettingClicked)
+                        .withListener(thisonSelectNetworksSettingClicked)
                         .build();
 
         advancedSetting =
                 new SettingsItemView.Builder(getContext())
                         .withIcon(R.drawable.ic_settings_advanced)
                         .withTitle(R.string.title_advanced)
-                        .withListener(this::onAdvancedSettingClicked)
+                        .withListener(thisonAdvancedSettingClicked)
                         .build();
 
         darkModeSetting =
                 new SettingsItemView.Builder(getContext())
                         .withIcon(R.drawable.ic_settings_darkmode)
                         .withTitle(R.string.title_dark_mode)
-                        .withListener(this::onDarkModeSettingClicked)
+                        .withListener(thisonDarkModeSettingClicked)
                         .build();
 
         supportSetting =
                 new SettingsItemView.Builder(getContext())
                         .withIcon(R.drawable.ic_settings_support)
                         .withTitle(R.string.title_support)
-                        .withListener(this::onSupportSettingClicked)
+                        .withListener(thisonSupportSettingClicked)
                         .build();
+
+        biometricsSetting.setToggleState(viewModel.getBiometricState());
     }
 
     private void addSettingsToLayout()
@@ -340,11 +343,11 @@ public class NewSettingsFragment extends BaseFragment
         if (biometricsSetting != null)
             systemSettingsLayout.addView(biometricsSetting, systemIndex++);
 
-        systemSettingsLayout.addView(notificationsSetting, systemIndex++);
-
         systemSettingsLayout.addView(changeLanguage, systemIndex++);
 
         systemSettingsLayout.addView(changeCurrency, systemIndex++);
+
+        systemSettingsLayout.addView(notificationsSetting, systemIndex++);
 
         systemSettingsLayout.addView(darkModeSetting, systemIndex++);
 
@@ -356,7 +359,7 @@ public class NewSettingsFragment extends BaseFragment
     private void setInitialSettingsData(View view)
     {
         TextView appVersionText = view.findViewById(R.id.text_version);
-        appVersionText.setText(String.format(Locale.getDefault(), "%s (%d)", BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
+        appVersionText.setText(String.format(Locale.getDefault(), %s (%d), BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
         TextView tokenScriptVersionText = view.findViewById(R.id.text_tokenscript_compatibility);
         tokenScriptVersionText.setText(TOKENSCRIPT_CURRENT_SCHEMA);
 
@@ -379,27 +382,27 @@ public class NewSettingsFragment extends BaseFragment
 
         switch (wallet.type)
         {
-            case HDKEY:
-                intent.putExtra("TYPE", BACKUP_HD_KEY);
+            case HDKEY
+                intent.putExtra(TYPE, BACKUP_HD_KEY);
                 break;
-            case KEYSTORE_LEGACY:
-            case KEYSTORE:
-                intent.putExtra("TYPE", BACKUP_KEYSTORE_KEY);
+            case KEYSTORE_LEGACY
+            case KEYSTORE
+                intent.putExtra(TYPE, BACKUP_KEYSTORE_KEY);
                 break;
         }
 
-        //override if this is an upgrade
+        override if this is an upgrade
         switch (wallet.authLevel)
         {
-            case NOT_SET:
-            case STRONGBOX_NO_AUTHENTICATION:
-            case TEE_NO_AUTHENTICATION:
-                if (wallet.lastBackupTime > 0)
+            case NOT_SET
+            case STRONGBOX_NO_AUTHENTICATION
+            case TEE_NO_AUTHENTICATION
+                if (wallet.lastBackupTime  0)
                 {
-                    intent.putExtra("TYPE", BackupOperationType.UPGRADE_KEY);
+                    intent.putExtra(TYPE, BackupOperationType.UPGRADE_KEY);
                 }
                 break;
-            default:
+            default
                 break;
         }
 
@@ -414,7 +417,7 @@ public class NewSettingsFragment extends BaseFragment
         {
             if (!wallet.ENSname.isEmpty())
             {
-                changeWalletSetting.setSubtitle(wallet.ENSname + " | " + wallet.address);
+                changeWalletSetting.setSubtitle(wallet.ENSname +    + wallet.address);
             }
             else
             {
@@ -424,10 +427,10 @@ public class NewSettingsFragment extends BaseFragment
 
         switch (wallet.authLevel)
         {
-            case NOT_SET:
-            case STRONGBOX_NO_AUTHENTICATION:
-            case TEE_NO_AUTHENTICATION:
-                if (wallet.lastBackupTime > 0)
+            case NOT_SET
+            case STRONGBOX_NO_AUTHENTICATION
+            case TEE_NO_AUTHENTICATION
+                if (wallet.lastBackupTime  0)
                 {
                     backUpWalletSetting.setTitle(getString(R.string.action_upgrade_key));
                     backUpWalletSetting.setSubtitle(getString(R.string.not_locked));
@@ -438,8 +441,8 @@ public class NewSettingsFragment extends BaseFragment
                     backUpWalletSetting.setSubtitle(getString(R.string.back_up_now));
                 }
                 break;
-            case TEE_AUTHENTICATION:
-            case STRONGBOX_AUTHENTICATION:
+            case TEE_AUTHENTICATION
+            case STRONGBOX_AUTHENTICATION
                 backUpWalletSetting.setTitle(getString(R.string.back_up_this_wallet));
                 backUpWalletSetting.setSubtitle(getString(R.string.key_secure));
                 break;
@@ -447,19 +450,19 @@ public class NewSettingsFragment extends BaseFragment
 
         switch (wallet.type)
         {
-            case NOT_DEFINED:
+            case NOT_DEFINED
                 break;
-            case KEYSTORE:
+            case KEYSTORE
                 break;
-            case HDKEY:
+            case HDKEY
                 showSeedPhrase.setVisibility(View.VISIBLE);
                 break;
-            case WATCH:
+            case WATCH
                 backUpWalletSetting.setVisibility(View.GONE);
                 break;
-            case TEXT_MARKER:
+            case TEXT_MARKER
                 break;
-            case KEYSTORE_LEGACY:
+            case KEYSTORE_LEGACY
                 break;
         }
 
@@ -507,7 +510,7 @@ public class NewSettingsFragment extends BaseFragment
             {
                 layoutBackup.setVisibility(View.GONE);
             }
-            //remove the number prompt
+            remove the number prompt
             if (getActivity() != null)
                 ((HomeActivity) getActivity()).removeSettingsBadgeKey(C.KEY_NEEDS_BACKUP);
             onDefaultWallet(viewModel.defaultWallet().getValue());
@@ -520,10 +523,10 @@ public class NewSettingsFragment extends BaseFragment
         if (wallet != null)
         {
             backupButton.setText(getString(R.string.back_up_now));
-            backupButton.setOnClickListener(v -> openBackupActivity(wallet));
+            backupButton.setOnClickListener(v - openBackupActivity(wallet));
             backupTitle.setText(getString(R.string.title_back_up_your_wallet));
             backupDetail.setText(getString(R.string.backup_wallet_detail));
-            closeBtn.setOnClickListener(v -> {
+            closeBtn.setOnClickListener(v - {
                 backedUp(wallet.address);
                 viewModel.setIsDismissed(wallet.address, true);
             });
@@ -583,7 +586,53 @@ public class NewSettingsFragment extends BaseFragment
 
     private void onBiometricsSettingClicked()
     {
-        // TODO: Implementation
+         TODO Implementation
+        if (!viewModel.getBiometricState())
+        {
+            AWalletConfirmationDialog cDialog = new AWalletConfirmationDialog(getActivity());
+            cDialog.setTitle(Enable Passcode);
+            cDialog.setMediumText(Do you want to enable passcode protection);
+            cDialog.setPrimaryButtonText(R.string.dialog_ok);
+            cDialog.setPrimaryButtonListener(v -
+            {
+                onPasscodeEnable();
+                cDialog.dismiss();
+            });
+            cDialog.setSecondaryButtonText(R.string.dialog_cancel_back);
+            cDialog.setSecondaryButtonListener(v -
+            {
+                cDialog.dismiss();
+            });
+            cDialog.show();
+        } else {
+            AWalletConfirmationDialog cDialog = new AWalletConfirmationDialog(getActivity());
+            cDialog.setTitle(Disable Passcode);
+            cDialog.setMediumText(Do you want to disable passcode protection);
+            cDialog.setPrimaryButtonText(R.string.dialog_ok);
+            cDialog.setPrimaryButtonListener(v -
+            {
+                onPasscodeDisable();
+                cDialog.dismiss();
+            });
+            cDialog.setSecondaryButtonText(R.string.dialog_cancel_back);
+            cDialog.setSecondaryButtonListener(v -
+            {
+                cDialog.dismiss();
+            });
+            cDialog.show();
+
+        }
+    }
+
+    private void onPasscodeEnable()
+    {
+        viewModel.setBiometricState(biometricsSetting.getToggleState());
+
+    }
+
+    private void onPasscodeDisable()
+    {
+        viewModel.setBiometricState(biometricsSetting.getToggleState());
     }
 
     private void onSelectNetworksSettingClicked()
@@ -614,15 +663,15 @@ public class NewSettingsFragment extends BaseFragment
     private void onWalletConnectSettingClicked()
     {
         Intent intent = new Intent(getActivity(), WalletConnectSessionActivity.class);
-        intent.putExtra("wallet", wallet);
+        intent.putExtra(wallet, wallet);
         startActivity(intent);
     }
 
     private void checkPendingUpdate(View view)
     {
-        if (updateLayout == null || view == null) return;
+        if (updateLayout == null  view == null) return;
 
-        if (pendingUpdate > 0)
+        if (pendingUpdate  0)
         {
             updateLayout.setVisibility(View.VISIBLE);
             TextView current = view.findViewById(R.id.text_detail_current);
@@ -634,7 +683,7 @@ public class NewSettingsFragment extends BaseFragment
                 ((HomeActivity) getActivity()).addSettingsBadgeKey(C.KEY_UPDATE_AVAILABLE);
             }
 
-            updateLayout.setOnClickListener(v ->
+            updateLayout.setOnClickListener(v -
             {
                 UpdateUtils.pushUpdateDialog(getActivity());
                 updateLayout.setVisibility(View.GONE);
@@ -693,7 +742,7 @@ public class NewSettingsFragment extends BaseFragment
                 viewModel.updateCurrency(currencyCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(res -> getActivity().recreate())
+                        .subscribe(res - getActivity().recreate())
                         .isDisposed();
             }
         }

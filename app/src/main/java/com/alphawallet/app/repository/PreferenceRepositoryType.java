@@ -42,12 +42,12 @@ public interface PreferenceRepositoryType {
     void setUserPreferenceLocale(String locale);
 
     boolean getFullScreenState();
+    
+    void setFullScreenState(boolean state);
+    
+    boolean getBiometricState();    
 
     void setBiometricState(boolean state);
-
-    boolean getBiometricState();
-
-    void setFullScreenState(boolean state);
 
     void setUse1559Transactions(boolean toggleState);
     boolean getUse1559Transactions();

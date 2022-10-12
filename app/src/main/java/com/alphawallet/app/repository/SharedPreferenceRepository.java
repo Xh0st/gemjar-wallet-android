@@ -48,6 +48,7 @@ public class SharedPreferenceRepository implements PreferenceRepositoryType {
     private static final String RATE_APP_SHOWN = "rate_us_shown";
     private static final String LAUNCH_COUNT = "launch_count";
     private static final String NEW_WALLET = "new_wallet_";
+    private static final String BIOMETRIC_STATE = "biometric";
 
     private final SharedPreferences pref;
 
@@ -177,11 +178,21 @@ public class SharedPreferenceRepository implements PreferenceRepositoryType {
         pref.edit().putBoolean(FULL_SCREEN_STATE, state).apply();
     }
 
-
     @Override
     public boolean getFullScreenState()
     {
         return pref.getBoolean(FULL_SCREEN_STATE, false);
+    }
+
+    @Override
+    public void setBiometricState(boolean state)
+    {
+        pref.edit().putBoolean(BIOMETRIC_STATE, state).apply();
+    }
+    @Override
+    public boolean getBiometricState()
+    {
+        return pref.getBoolean(BIOMETRIC_STATE, false);
     }
 
     @Override

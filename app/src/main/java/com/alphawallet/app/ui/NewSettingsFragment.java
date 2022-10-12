@@ -340,11 +340,11 @@ public class NewSettingsFragment extends BaseFragment
         if (biometricsSetting != null)
             systemSettingsLayout.addView(biometricsSetting, systemIndex++);
 
-        systemSettingsLayout.addView(notificationsSetting, systemIndex++);
-
         systemSettingsLayout.addView(changeLanguage, systemIndex++);
 
         systemSettingsLayout.addView(changeCurrency, systemIndex++);
+
+        systemSettingsLayout.addView(notificationsSetting, systemIndex++);
 
         systemSettingsLayout.addView(darkModeSetting, systemIndex++);
 

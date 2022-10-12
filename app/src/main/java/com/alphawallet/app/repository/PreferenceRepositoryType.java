@@ -43,6 +43,10 @@ public interface PreferenceRepositoryType {
 
     boolean getFullScreenState();
 
+    void setBiometricState(boolean state);
+
+    boolean getBiometricState();
+
     void setFullScreenState(boolean state);
 
     void setUse1559Transactions(boolean toggleState);

@@ -278,13 +278,13 @@ public class NewSettingsFragment extends BaseFragment
                 .withListener(this::onChangeCurrencyClicked)
                 .build();
 
-        biometricsSetting = 
+        biometricsSetting =
                 new SettingsItemView.Builder(getContext())
-                       .withType(SettingsItemView.Type.TOGGLE)
-                       .withIcon(R.drawable.ic_settings_biometrics)
-                       .withTitle(R.string.title_biometrics)
-                       .withListener(this::onBiometricsSettingClicked)
-                       .build();
+                        .withType(SettingsItemView.Type.TOGGLE)
+                        .withIcon(R.drawable.ic_settings_biometrics)
+                        .withTitle(R.string.title_biometrics)
+                        .withListener(this::onBiometricsSettingClicked)
+                        .build();
 
         selectNetworksSetting =
                 new SettingsItemView.Builder(getContext())
@@ -344,8 +344,8 @@ public class NewSettingsFragment extends BaseFragment
         systemSettingsLayout.addView(changeLanguage, systemIndex++);
 
         systemSettingsLayout.addView(changeCurrency, systemIndex++);
-        
-        systemSettingsLayout.addView(notificationsSetting, systemIndex++);        
+
+        systemSettingsLayout.addView(notificationsSetting, systemIndex++);
 
         systemSettingsLayout.addView(darkModeSetting, systemIndex++);
 

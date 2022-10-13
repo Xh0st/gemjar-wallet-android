@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.alphawallet.app"
+    package="com.gemjarwallet.app"
     android:targetSandboxVersion="1">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -19,7 +19,7 @@
         android:required="false" />
 
     <application
-        android:name=".App"
+        android:name="com.gemjarwallet.app.App"
         android:allowBackup="false"
         android:extractNativeLibs="true"
         android:hardwareAccelerated="true"
@@ -35,7 +35,7 @@
         tools:replace="android:name, android:theme, android:allowBackup">
 
         <activity
-            android:name=".ui.HomeActivity"
+            android:name="com.gemjarwallet.app.ui.HomeActivity"
             android:exported="true"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar.Splash"
@@ -86,7 +86,7 @@
         </activity>
 
         <activity
-            android:name=".ui.ApiV1Activity"
+            android:name="com.gemjarwallet.app.ui.ApiV1Activity"
             android:theme="@style/AppTheme.NoActionBar.Transparent"
             android:label="API V1 Activity" />
 
@@ -101,234 +101,234 @@
         </provider>
 
         <activity
-            android:name=".ui.WalletsActivity"
+            android:name="com.gemjarwallet.app.ui.WalletsActivity"
             android:label="@string/title_account_list" />
 
         <activity
-            android:name=".ui.SplashActivity"
+            android:name="com.gemjarwallet.app.ui.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar.Splash" />
 
         <service
-            android:name=".service.WalletConnectService"
+            android:name="com.gemjarwallet.app.service.WalletConnectService"
             android:enabled="true" />
 
         <activity
-            android:name=".ui.NameThisWalletActivity"
+            android:name="com.gemjarwallet.app.ui.NameThisWalletActivity"
             android:label="@string/name_this_wallet"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".ui.ImportWalletActivity"
+            android:name="com.gemjarwallet.app.ui.ImportWalletActivity"
             android:label="@string/title_import"
             android:screenOrientation="sensor"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
 
         <activity
-            android:name=".ui.TransactionDetailActivity"
+            android:name="com.gemjarwallet.app.ui.TransactionDetailActivity"
             android:label="@string/title_transaction_details" />
         <activity
-            android:name=".ui.MyAddressActivity"
+            android:name="com.gemjarwallet.app.ui.MyAddressActivity"
             android:label="@string/title_my_address" />
 
         <activity
-            android:name=".ui.SendActivity"
+            android:name="com.gemjarwallet.app.ui.SendActivity"
             android:label="@string/title_activity_send"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".ui.AddTokenActivity"
+            android:name="com.gemjarwallet.app.ui.AddTokenActivity"
             android:label="@string/title_add_token" />
 
         <activity
-            android:name=".ui.AssetDisplayActivity"
+            android:name="com.gemjarwallet.app.ui.AssetDisplayActivity"
             android:label="@string/title_use_token" />
 
         <activity
-            android:name=".ui.RedeemSignatureDisplayActivity"
+            android:name="com.gemjarwallet.app.ui.RedeemSignatureDisplayActivity"
             android:label="@string/title_use_token" />
 
         <activity
-            android:name=".ui.GasSettingsActivity"
+            android:name="com.gemjarwallet.app.ui.GasSettingsActivity"
             android:label="@string/title_send_settings" />
 
         <activity
-            android:name=".ui.SellDetailActivity"
+            android:name="com.gemjarwallet.app.ui.SellDetailActivity"
             android:label="@string/action_sell"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".ui.RedeemAssetSelectActivity"
+            android:name="com.gemjarwallet.app.ui.RedeemAssetSelectActivity"
             android:label="@string/title_redeem" />
 
         <activity
-            android:name=".ui.ImportTokenActivity"
+            android:name="com.gemjarwallet.app.ui.ImportTokenActivity"
             android:label="@string/title_import_token" />
 
         <activity
-            android:name=".ui.TransferTicketDetailActivity"
+            android:name="com.gemjarwallet.app.ui.TransferTicketDetailActivity"
             android:label="@string/label_transfer_ticket_detail" />
 
         <activity
-            android:name=".ui.TokenDetailActivity"
+            android:name="com.gemjarwallet.app.ui.TokenDetailActivity"
             android:label="@string/token_details" />
 
         <activity
-            android:name=".ui.Erc20DetailActivity"
+            android:name="com.gemjarwallet.app.ui.Erc20DetailActivity"
             android:label="@string/erc20_details" />
 
         <activity
-            android:name=".ui.TokenFunctionActivity"
+            android:name="com.gemjarwallet.app.ui.TokenFunctionActivity"
             android:label="@string/token_function" />
 
         <activity
-            android:name=".ui.FunctionActivity"
+            android:name="com.gemjarwallet.app.ui.FunctionActivity"
             android:label="@string/token_function" />
 
         <activity
-            android:name=".ui.WalletActionsActivity"
+            android:name="com.gemjarwallet.app.ui.WalletActionsActivity"
             android:label="Wallet Actions" />
 
         <activity
-            android:name=".ui.AddEditDappActivity"
+            android:name="com.gemjarwallet.app.ui.AddEditDappActivity"
             android:label="Add DApp" />
 
         <activity
-            android:name=".ui.SelectNetworkActivity"
+            android:name="com.gemjarwallet.app.ui.SelectNetworkActivity"
             android:label="Select DApp Browser Network" />
 
         <activity
-            android:name=".ui.SelectNetworkFilterActivity"
+            android:name="com.gemjarwallet.app.ui.SelectNetworkFilterActivity"
             android:label="Select Network Filters" />
 
         <activity
-            android:name=".ui.TokenManagementActivity"
+            android:name="com.gemjarwallet.app.ui.TokenManagementActivity"
             android:label="Manage Tokens" />
 
         <activity
-            android:name=".ui.SelectLocaleActivity"
+            android:name="com.gemjarwallet.app.ui.SelectLocaleActivity"
             android:label="Select Language" />
 
         <activity
-            android:name=".ui.SelectCurrencyActivity"
+            android:name="com.gemjarwallet.app.ui.SelectCurrencyActivity"
             android:label="Select Currency" />
 
         <activity
-            android:name=".ui.ScammerWarningActivity"
+            android:name="com.gemjarwallet.app.ui.ScammerWarningActivity"
             android:label="Scammer Warning"
             android:noHistory="true" />
 
         <activity
-            android:name=".ui.BackupKeyActivity"
+            android:name="com.gemjarwallet.app.ui.BackupKeyActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
-            android:name=".ui.SupportSettingsActivity"
+            android:name="com.gemjarwallet.app.ui.SupportSettingsActivity"
             android:label="Support Settings" />
 
         <activity
-            android:name=".ui.AdvancedSettingsActivity"
+            android:name="com.gemjarwallet.app.ui.AdvancedSettingsActivity"
             android:label="Advanced Settings" />
 
         <activity
-            android:name=".ui.StaticViewer"
+            android:name="com.gemjarwallet.app.ui.StaticViewer"
             android:label="View Text" />
 
         <activity
-            android:name=".ui.TokenScriptManagementActivity"
+            android:name="com.gemjarwallet.app.ui.TokenScriptManagementActivity"
             android:label="@string/tokenscript_management" />
 
         <activity
-            android:name=".ui.TokenActivity"
+            android:name="com.gemjarwallet.app.ui.TokenActivity"
             android:label="@string/activity_label" />
 
         <activity
-            android:name=".ui.WalletConnectActivity"
+            android:name="com.gemjarwallet.app.ui.WalletConnectActivity"
             android:label="WalletConnect"
             android:launchMode="singleTop" />
 
         <activity
-            android:name=".ui.BackupFlowActivity"
+            android:name="com.gemjarwallet.app.ui.BackupFlowActivity"
             android:label="WalletConnect" />
 
         <activity
-            android:name=".ui.SignDetailActivity"
+            android:name="com.gemjarwallet.app.ui.SignDetailActivity"
             android:label="Sign Details" />
 
         <activity
-            android:name=".ui.WalletConnectSessionActivity"
+            android:name="com.gemjarwallet.app.ui.WalletConnectSessionActivity"
             android:label="WalletConnect Sessions" />
 
         <activity
-            android:name=".ui.TransactionSuccessActivity"
+            android:name="com.gemjarwallet.app.ui.TransactionSuccessActivity"
             android:label="Transaction Success" />
 
         <activity
-            android:name=".ui.SetPriceAlertActivity"
+            android:name="com.gemjarwallet.app.ui.SetPriceAlertActivity"
             android:label="Set New Alert"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".ui.AddCustomRPCNetworkActivity"
+            android:name="com.gemjarwallet.app.ui.AddCustomRPCNetworkActivity"
             android:label="@string/title_activity_add_custom_rpcnetwork" />
 
         <activity
-            android:name=".ui.NFTActivity"
+            android:name="com.gemjarwallet.app.ui.NFTActivity"
             android:label="ERC721 Master Activity" />
 
         <activity
-            android:name=".ui.Erc1155AssetSelectActivity"
+            android:name="com.gemjarwallet.app.ui.Erc1155AssetSelectActivity"
             android:label="ERC1155 Asset Selection" />
 
         <activity
-            android:name=".ui.NFTAssetDetailActivity"
+            android:name="com.gemjarwallet.app.ui.NFTAssetDetailActivity"
             android:label="ERC1155 Asset Details" />
 
         <activity
-            android:name=".ui.Erc1155AssetListActivity"
+            android:name="com.gemjarwallet.app.ui.Erc1155AssetListActivity"
             android:label="ERC1155 Asset Details" />
 
         <activity
-            android:name=".ui.TransferNFTActivity"
+            android:name="com.gemjarwallet.app.ui.TransferNFTActivity"
             android:label="NFT Transfer" />
 
         <activity
-            android:name=".ui.SelectThemeActivity"
+            android:name="com.gemjarwallet.app.ui.SelectThemeActivity"
             android:label="Select Mode" />
 
         <activity
-            android:name=".ui.SearchActivity"
+            android:name="com.gemjarwallet.app.ui.SearchActivity"
             android:label="Search Tokens" />
 
         <activity
-            android:name=".ui.QRScanning.QRScanner"
+            android:name="com.gemjarwallet.app.ui.QRScanning.QRScanner"
             android:label="@string/qr_scanner" />
 
         <activity
-            android:name=".ui.SwapActivity"
+            android:name="com.gemjarwallet.app.ui.SwapActivity"
             android:label="Native Swap"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".ui.SelectRouteActivity"
+            android:name="com.gemjarwallet.app.ui.SelectRouteActivity"
             android:label="@string/title_select_route" />
 
         <activity
-            android:name=".ui.SelectSwapProvidersActivity"
+            android:name="com.gemjarwallet.app.ui.SelectSwapProvidersActivity"
             android:label="@string/title_select_exchanges" />
 
         <activity
-            android:name=".ui.NodeStatusActivity"
+            android:name="com.gemjarwallet.app.ui.NodeStatusActivity"
             android:label="@string/action_node_status" />
 
         <activity
-            android:name=".ui.CoinbasePayActivity"
+            android:name="com.gemjarwallet.app.ui.CoinbasePayActivity"
             android:label="@string/title_buy_with_coinbase_pay" />
 
         <activity
-            android:name=".ui.WalletDiagnosticActivity"
+            android:name="com.gemjarwallet.app.ui.WalletDiagnosticActivity"
             android:label="@string/key_diagnostic" />
 
         <service
-            android:name=".service.PriceAlertsService"
+            android:name="com.gemjarwallet.app.service.PriceAlertsService"
             android:enabled="true"
             android:exported="false"
             android:stopWithTask="true" />

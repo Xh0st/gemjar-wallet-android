@@ -254,7 +254,7 @@
     <string name="eth_00">0,00 ETH</string>
     <string name="toolbar_title_wallets">Cambiar monedero</string>
     <string name="what_is_eth">Ethereum es una plataforma informática y un sistema operativo de código abierto, público, de distribución basada en las cadenas de bloques, con funcionalidad de contratos inteligentes (scripting). Es la infraestructura de los productos y servicios de cadena de bloques.\n\nEl ETH/Ether es una criptomoneda cuya cadena de bloques la genera la plataforma Ethereum. El Ether se puede transferir entre cuentas y se puede utilizar para compensar a los nodos mineros participantes por los cálculos realizados. Ethereum proporciona una máquina virtual de Turing completo descentralizada, la Ethereum Virtual Machine (EVM), que puede ejecutar scripts usando una red internacional de nodos públicos. El \"gas\", un mecanismo interno de fijación de precios para las transacciones, se emplea para mitigar el spam y asignar los recursos en la red.</string>
-    <string name="why_alphawallet_eth">En la actualidad, Ethereum es la mayor y mejor cadena de bloques para el desarrollo de aplicaciones y servicios de contratos inteligentes. GemjarWallet comienza apoyando la cadena de bloques de Ethereum y ayuda a mejorar su tecnología.</string>
+    <string name="why_gemjarwallet_eth">En la actualidad, Ethereum es la mayor y mejor cadena de bloques para el desarrollo de aplicaciones y servicios de contratos inteligentes. GemjarWallet comienza apoyando la cadena de bloques de Ethereum y ayuda a mejorar su tecnología.</string>
     <string name="how_i_get_money">Puedes convertir el Ethereum en dinero fíat y transferirlo a tu cuenta bancaria a través de cualquier plataforma de intercambio de criptomonedas.</string>
     <string name="how_i_transfer_into_wallet">Puedes proporcionar la dirección de tu monedero al remitente. Pueden transferirte ETH con la dirección de tu monedero.</string>
     <string name="ticket_import_valid">Tickets válidos para la importación</string>
@@ -313,7 +313,7 @@
     <string name="new_version">La actualización de la versión está disponible en el sitio web de GemjarWallet.</string>
     <string name="confirm_update">Descargar e instalar</string>
     <string name="dialog_later">Más tarde</string>
-    <string name="alphawallet_update">Actualización de GemjarWallet</string>
+    <string name="gemjarwallet_update">Actualización de GemjarWallet</string>
     <string name="install_error">No ha sido posible actualizar la aplicación</string>
     <string name="require_write_permission">No se ha concedido permiso de escritura en el almacenamiento.</string>
     <string name="dialog_not_again">Omitir hasta la próxima versión</string>
@@ -500,7 +500,7 @@
     <string name="provide_authentication">Proporcionar autenticación para crear la clave</string>
     <string name="import_error">Error de importación. Intenta importarlo de nuevo.</string>
     <string name="watch_exists">El monedero %1$s ya está completo - no es necesario observarlo</string>
-    <string name="welcome_to_alphawallet">Bienvenido a GemjarWallet</string>
+    <string name="welcome_to_gemjarwallet">Bienvenido a GemjarWallet</string>
     <string name="lock_seed_phrase">Bloquear frase semilla</string>
     <string name="no_key">No se ha encontrado ninguna clave</string>
     <string name="pending_transaction">Transacción pendiente...</string>
@@ -713,7 +713,7 @@
     <string name="disconnect">Disconnect</string>
     <string name="keep_connect">Keep Connected</string>
     <string name="beware_of_scammers">Beware of scammers!\nDon\'t share seed phrase.</string>
-    <string name="alphawallet_never_ask">GemjarWallet will NEVER ask about your seed phrase (especially on Telegram).</string>
+    <string name="gemjarwallet_never_ask">GemjarWallet will NEVER ask about your seed phrase (especially on Telegram).</string>
     <string name="your_seed_phrase">Your seed phrase (do not share with anyone)</string>
     <string name="hide_seed_text">OK, Hide Seed Phrase</string>
     <string name="ens_not_match_wallet">ENS Name does not match wallet address</string>

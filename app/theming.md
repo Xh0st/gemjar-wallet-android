@@ -4,7 +4,7 @@ The attributes defined in [`values/themes.xml`]() exist for two primary reasons:
    * **Colors**
      Most native components derive their colors from one of the standard color references. For instance, the default status bar color is derived from `colorPrimaryDark`. Meanwhile, the activated state of a checkbox is derived from `colorControlActivated`.
    * **Styles**
-     The default `toolbarStyle` is set to `Aw.Component.Toolbar`, which means if you inflate a `MaterialToolbar`, it is automatically styled as an AlphaWallet-themed toolbar.
+     The default `toolbarStyle` is set to `Aw.Component.Toolbar`, which means if you inflate a `MaterialToolbar`, it is automatically styled as an GemjarWallet-themed toolbar.
 
   By having these default values specified in the theme, developers no longer need to manually style most native components, effectively reducing development time and improving UX consistency.
 
@@ -110,7 +110,7 @@ You may need to create a new color reference if any of the existing colors do no
     ```
 
 ### Rebranding or customizing the theme
-AlphaWallet is one of the best Ethereum wallets to fork, so we have provided an easy way for you to customize it.
+GemjarWallet is one of the best Ethereum wallets to fork, so we have provided an easy way for you to customize it.
 
 ##### Changing fonts
 In `app/src/main/res/font`, simply replace the following files with your preferred font:

@@ -6,7 +6,7 @@ version_name=$(./gradlew -q printVersionName)
 tag=v$version_name
 
 src_apk=$(pwd)/app/build/outputs/apk/noAnalytics/release/app-noAnalytics-release.apk
-dst_apk=$(pwd)/AlphaWallet-$tag.apk
+dst_apk=$(pwd)/GemjarWallet-$tag.apk
 cp $src_apk $dst_apk
 
 latest_release_tag=$(gh release list -L 1 | cut -d$'\t' -f3)

@@ -254,7 +254,7 @@
     <string name="eth_00">0.00 以太币</string>
     <string name="toolbar_title_wallets">更换当前钱包</string>
     <string name="what_is_eth">以太坊是一个建立在区块链技术之上的开发平台，同时具有智能合约功能的操作系统。它是区块链产品和服务的基础技术。\n\nETH/Ether 是一个加密货币，其区块链由以太坊平台生成。 Ether 可以在在账户中互相转移和用来奖励给挖矿者。以太坊提供了一个“图灵完备”的虚拟机，称为以太坊虚拟机(Ethereum Virtual Machine)，简称EVM，用于国际网络中执行交易代码, \"Gas\", 是一种特别的单位用于Ethereum（以太币）里，它用来衡量一个行为或者一系列行为有多少“工作量”。 </string>
-    <string name="why_alphawallet_eth">目前，以太坊是最好区块链技术和开发智能合约应用程序和。GemjarWallet 开发于太坊区块链技术基础上，目前还在不断创新。</string>
+    <string name="why_gemjarwallet_eth">目前，以太坊是最好区块链技术和开发智能合约应用程序和。GemjarWallet 开发于太坊区块链技术基础上，目前还在不断创新。</string>
     <string name="how_i_get_money">您可以将以太币转换为法定货币，并通过任何加密货币市场转移到您的银行账户。</string>
     <string name="how_i_transfer_into_wallet">您可以提供钱包地址给发件人，通过您的钱包地址把ETH转移到您的钱包。</string>
     <string name="ticket_import_valid">门票有效</string>
@@ -313,7 +313,7 @@
     <string name="new_version">前往 GemjarWallet 网站即可获得版本更新资讯。</string>
     <string name="confirm_update">下载并安装</string>
     <string name="dialog_later">稍后</string>
-    <string name="alphawallet_update">GemjarWallet 更新</string>
+    <string name="gemjarwallet_update">GemjarWallet 更新</string>
     <string name="install_error">无法更新应用</string>
     <string name="require_write_permission">未授予存储写入权限。</string>
     <string name="dialog_not_again">跳过直至下一版本</string>
@@ -500,7 +500,7 @@
     <string name="provide_authentication">提供身份验证以创建密钥</string>
     <string name="import_error">导入错误，请再次尝试重新导入。</string>
     <string name="watch_exists">你为什么想看道现有的钱包 %1$s？</string>
-    <string name="welcome_to_alphawallet">欢迎使用 GemjarWallet</string>
+    <string name="welcome_to_gemjarwallet">欢迎使用 GemjarWallet</string>
     <string name="lock_seed_phrase">锁定助记词</string>
     <string name="no_key">未找到密钥</string>
     <string name="pending_transaction">交易待定……</string>
@@ -713,7 +713,7 @@
     <string name="disconnect">Disconnect</string>
     <string name="keep_connect">Keep Connected</string>
     <string name="beware_of_scammers">Beware of scammers!\nDon\'t share seed phrase.</string>
-    <string name="alphawallet_never_ask">GemjarWallet will NEVER ask about your seed phrase (especially on Telegram).</string>
+    <string name="gemjarwallet_never_ask">GemjarWallet will NEVER ask about your seed phrase (especially on Telegram).</string>
     <string name="your_seed_phrase">Your seed phrase (do not share with anyone)</string>
     <string name="hide_seed_text">OK, Hide Seed Phrase</string>
     <string name="ens_not_match_wallet">ENS Name does not match wallet address</string>

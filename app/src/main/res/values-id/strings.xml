@@ -1,5 +1,5 @@
 <resources>
-
+    // alphawallet
     <!-- String related to sending -->
     <string name="action_send">Kirim</string>
     <string name="action_send_tkn">Send %1$s</string>
@@ -264,7 +264,7 @@
     <string name="eth_00">0.00 ETH</string>
     <string name="toolbar_title_wallets">Ubah Dompet</string>
     <string name="what_is_eth">Ethereum adalah sistem yang terbuka, secara umum, platform komputasi terdistribusi berbasis blockchain dan sistem operasi yang menampilkan fungsionalitas Smart Contract (scripting). Ini adalah infrastruktur untuk produk dan layanan blockchain.\n\nETH/Ether adalah mata uang kripto yang blockchain-nya dihasilkan oleh platform Ethereum. Ether dapat ditransfer antar akun dan digunakan untuk mengkompensasi node penambangan peserta untuk perhitungan yang dilakukan. Ethereum menyediakan mesin virtual lengkap yang terdesentralisasi, Mesin Virtual Ethereum (EVM), yang dapat mengeksekusi skrip menggunakan jaringan internasional node publik. "Gas", mekanisme penetapan harga transaksi internal, digunakan untuk mengurangi spam dan mengalokasikan sumber daya pada jaringan.</string>
-    <string name="why_alphawallet_eth">Saat ini, Ethereum adalah blockchain terbaik dan terbesar untuk mengembangkan aplikasi dan layanan Smart Contract. GemjarWallet dimulai dengan mendukung blockchain Ethereum dan membantu meningkatkan teknologinya.</string>
+    <string name="why_gemjarwallet_eth">Saat ini, Ethereum adalah blockchain terbaik dan terbesar untuk mengembangkan aplikasi dan layanan Smart Contract. GemjarWallet dimulai dengan mendukung blockchain Ethereum dan membantu meningkatkan teknologinya.</string>
     <string name="how_i_get_money">Anda dapat mengubah Ethereum menjadi uang fiat dan mentransfernya ke rekening bank Anda melalui bursa mata uang kripto apa pun.</string>
     <string name="how_i_transfer_into_wallet">Anda bisa memberikan alamat dompet Anda kepada pengirim. Mereka dapat mentransfer ETH kepada Anda melalui alamat dompet Anda.</string>
     <string name="ticket_import_valid">Tiket Berlaku untuk Impor</string>
@@ -323,7 +323,7 @@
     <string name="new_version">Pembaruan versi tersedia di situs web GemjarWallet.</string>
     <string name="confirm_update">Unduh dan Pasang</string>
     <string name="dialog_later">Nanti</string>
-    <string name="alphawallet_update">Pembaruan GemjarWallet</string>
+    <string name="gemjarwallet_update">Pembaruan GemjarWallet</string>
     <string name="install_error">Tidak dapat memperbarui Aplikasi</string>
     <string name="require_write_permission">Izin tulis penyimpanan tidak diberikan.</string>
     <string name="dialog_not_again">Lewati hingga rilis berikutnya</string>
@@ -510,7 +510,7 @@
     <string name="provide_authentication">Menyediakan pengesahan untuk membuat kunci</string>
     <string name="import_error">Kesalahan Impor, Coba impor ulang lagi.</string>
     <string name="watch_exists">Dompet %1$s sudah diimpor dengan kunci</string>
-    <string name="welcome_to_alphawallet">Selamat datang di GemjarWallet</string>
+    <string name="welcome_to_gemjarwallet">Selamat datang di GemjarWallet</string>
     <string name="lock_seed_phrase">Kunci Seed Phrase</string>
     <string name="no_key">Tidak ada Kunci yang ditemukan</string>
     <string name="pending_transaction">Transaksi Tertunda …</string>
@@ -725,7 +725,7 @@
     <string name="disconnect">Putuskan hubungan</string>
     <string name="keep_connect">Tetap Terhubung</string>
     <string name="beware_of_scammers">Waspadalah terhadap penipu! Jangan membagikan Seed Phrase.</string>
-    <string name="alphawallet_never_ask">GemjarWallet TIDAK AKAN PERNAH bertanya tentang Seed Phrase Anda (terutama di Telegram).</string>
+    <string name="gemjarwallet_never_ask">GemjarWallet TIDAK AKAN PERNAH bertanya tentang Seed Phrase Anda (terutama di Telegram).</string>
     <string name="your_seed_phrase">Seed Phrase Anda (jangan bagikan dengan siapa pun)</string>
     <string name="hide_seed_text">OK, Sembunyikan Seed Phrase</string>
     <string name="ens_not_match_wallet">Nama ENS tidak cocok dengan alamat dompet</string>

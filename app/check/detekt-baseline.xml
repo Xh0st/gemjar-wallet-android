@@ -34,15 +34,15 @@
     <ID>MaxLineLength:SuggestEIP1559.kt$return</ID>
     <ID>MaxLineLength:SuggestEIP1559.kt$val feeHistory = gasService.getChainFeeHistory(blockCount, "0x" + (firstBlock + ptr).toString(16), rewardPercentile.toString()).blockingGet()</ID>
     <ID>MaxLineLength:WCClient.kt$WCClient$fun</ID>
-    <ID>NewLineAtEndOfFile:Enums.kt$com.alphawallet.app.walletconnect.entity.Enums.kt</ID>
-    <ID>NewLineAtEndOfFile:EthereumModels.kt$com.alphawallet.app.walletconnect.entity.EthereumModels.kt</ID>
-    <ID>NewLineAtEndOfFile:Exceptions.kt$com.alphawallet.app.walletconnect.entity.Exceptions.kt</ID>
-    <ID>NewLineAtEndOfFile:Extensions.kt$com.alphawallet.app.walletconnect.util.Extensions.kt</ID>
-    <ID>NewLineAtEndOfFile:JsonRpcModels.kt$com.alphawallet.app.walletconnect.entity.JsonRpcModels.kt</ID>
-    <ID>NewLineAtEndOfFile:ReleaseTree.kt$com.alphawallet.app.util.ReleaseTree.kt</ID>
-    <ID>NewLineAtEndOfFile:SessionModels.kt$com.alphawallet.app.walletconnect.entity.SessionModels.kt</ID>
-    <ID>NewLineAtEndOfFile:SuggestEIP1559.kt$com.alphawallet.app.entity.SuggestEIP1559.kt</ID>
-    <ID>NewLineAtEndOfFile:WCSession.kt$com.alphawallet.app.walletconnect.WCSession.kt</ID>
+    <ID>NewLineAtEndOfFile:Enums.kt$com.gemjarwallet.app.walletconnect.entity.Enums.kt</ID>
+    <ID>NewLineAtEndOfFile:EthereumModels.kt$com.gemjarwallet.app.walletconnect.entity.EthereumModels.kt</ID>
+    <ID>NewLineAtEndOfFile:Exceptions.kt$com.gemjarwallet.app.walletconnect.entity.Exceptions.kt</ID>
+    <ID>NewLineAtEndOfFile:Extensions.kt$com.gemjarwallet.app.walletconnect.util.Extensions.kt</ID>
+    <ID>NewLineAtEndOfFile:JsonRpcModels.kt$com.gemjarwallet.app.walletconnect.entity.JsonRpcModels.kt</ID>
+    <ID>NewLineAtEndOfFile:ReleaseTree.kt$com.gemjarwallet.app.util.ReleaseTree.kt</ID>
+    <ID>NewLineAtEndOfFile:SessionModels.kt$com.gemjarwallet.app.walletconnect.entity.SessionModels.kt</ID>
+    <ID>NewLineAtEndOfFile:SuggestEIP1559.kt$com.gemjarwallet.app.entity.SuggestEIP1559.kt</ID>
+    <ID>NewLineAtEndOfFile:WCSession.kt$com.gemjarwallet.app.walletconnect.WCSession.kt</ID>
     <ID>ReturnCount:SuggestEIP1559.kt$internal fun predictMinBaseFee(baseFee: Array&lt;BigInteger&gt;, order: List&lt;Int&gt;, timeFactor: Double): BigInteger</ID>
     <ID>ReturnCount:WCSession.kt$WCSession.Companion$fun from(from: String): WCSession?</ID>
     <ID>SwallowedException:WCClient.kt$WCClient$e: JsonSyntaxException</ID>
@@ -58,7 +58,7 @@
     <ID>TopLevelPropertyNaming:SuggestEIP1559.kt$private const val sampleMinPercentile = 10 // sampled percentile range of exponentially weighted baseFee history</ID>
     <ID>UnusedPrivateMember:WCClient.kt$WCClient$private val TAG = WCClient::class.java.simpleName</ID>
     <ID>VariableNaming:WCClient.kt$WCClient$private val TAG = WCClient::class.java.simpleName</ID>
-    <ID>WildcardImport:WCClient.kt$import com.alphawallet.app.walletconnect.entity.*</ID>
+    <ID>WildcardImport:WCClient.kt$import com.gemjarwallet.app.walletconnect.entity.*</ID>
     <ID>WildcardImport:WCClient.kt$import okhttp3.*</ID>
   </CurrentIssues>
 </SmellBaseline>

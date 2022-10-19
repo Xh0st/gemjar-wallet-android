@@ -194,7 +194,7 @@ public class Web3View extends WebView {
                 innerOnSignTypedMessageListener,
                 innerOnEthCallListener,
                 innerAddChainListener,
-                innerOnWalletActionListener), "alpha");
+                innerOnWalletActionListener), "gem");
         
 //        Removing this block for now.
 //        TODO: Figure out if we should support dark mode for external websites

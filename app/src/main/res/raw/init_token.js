@@ -21,7 +21,7 @@ web3 = {
             const { data } = msgParams
             const { id = 8888 } = msgParams
             window.web3CallBacks[id] = cb
-            alpha.signPersonalMessage(id, data);
+            gem.signPersonalMessage(id, data);
         }
     },
     tokens: {
@@ -34,7 +34,7 @@ web3 = {
     },
     action: {
         setProps: function (msgParams) {
-            alpha.setValues(JSON.stringify(msgParams));
+            gem.setValues(JSON.stringify(msgParams));
         }
     }
 }

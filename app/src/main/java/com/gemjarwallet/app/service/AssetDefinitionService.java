@@ -165,14 +165,14 @@ public class AssetDefinitionService implements ParseResult, AttributeInterface
     public AssetDefinitionService(OkHttpClient client, Context ctx, NotificationService svs,
                                   RealmManager rm, TokensService tokensService,
                                   TokenLocalSource trs, TransactionRepositoryType trt,
-                                  GemjarWalletService alphaService)
+                                  GemjarWalletService gemService)
     {
         context = ctx;
         okHttpClient = client;
         assetChecked = new ConcurrentHashMap<>();
         notificationService = svs;
         realmManager = rm;
-        gemjarWalletService = alphaService;
+        gemjarWalletService = gemService;
         this.tokensService = tokensService;
         tokenscriptUtility = new TokenscriptFunction()
         {

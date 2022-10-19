@@ -27,7 +27,7 @@ import com.gemjarwallet.app.ui.HomeActivity;
 public class NotificationService
 {
     private final Context context;
-    private final String CHANNEL_ID = "ALPHAWALLET CHANNEL";
+    private final String CHANNEL_ID = "GEMJARWALLET CHANNEL";
     private final int NOTIFICATION_ID = 314151024;
     public static final String AWSTARTUP = "AW://";
 

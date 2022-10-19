@@ -18,43 +18,43 @@ window.GemjarWallet.init(__rpcURL, {
     var gasPrice = tx.gasPrice || null;
     var data = tx.data || null;
     var nonce = tx.nonce || -1;
-    alpha.signTransaction(id, tx.to || null, tx.value, nonce, gasLimit, gasPrice, data);
+    gem.signTransaction(id, tx.to || null, tx.value, nonce, gasLimit, gasPrice, data);
   },
   signMessage: function (msgParams, cb) {
       console.log('signMessage', msgParams)
       const { data, chainType } = msgParams
       const { id = 8888 } = msgParams
     GemjarWallet.addCallback(id, cb)
-    alpha.signMessage(id, data);
+    gem.signMessage(id, data);
   },
   signPersonalMessage: function (msgParams, cb) {
       console.log('signPersonalMessage', msgParams)
       const { data, chainType } = msgParams
       const { id = 8888 } = msgParams
     GemjarWallet.addCallback(id, cb)
-    alpha.signPersonalMessage(id, data);
+    gem.signPersonalMessage(id, data);
   },
   signTypedMessage: function (msgParams, cb) {
     console.log('signTypedMessage ', msgParams)
     const { data } = msgParams
     const { id = 8888 } = msgParams
     GemjarWallet.addCallback(id, cb)
-    alpha.signTypedMessage(id, JSON.stringify(msgParams))
+    gem.signTypedMessage(id, JSON.stringify(msgParams))
   },
   ethCall: function (msgParams, cb) {
     console.log("eth_call", msgParams)
     const data = msgParams
     const { id = Math.floor((Math.random() * 100000) + 1) } = msgParams
     GemjarWallet.addCallback(id, cb)
-    alpha.ethCall(id, JSON.stringify(msgParams));
-    //alpha.ethCall(id, msgParams.to, msgParams.data, msgParams.value);
+    gem.ethCall(id, JSON.stringify(msgParams));
+    //gem.ethCall(id, msgParams.to, msgParams.data, msgParams.value);
   },
   walletAddEthereumChain: function (msgParams, cb) {
     const data = msgParams
     const { id = Math.floor((Math.random() * 100000) + 1) } = msgParams
     console.log("walletAddEthereumChain", msgParams)
     GemjarWallet.addCallback(id, cb)
-    alpha.walletAddEthereumChain(id, JSON.stringify(msgParams));
+    gem.walletAddEthereumChain(id, JSON.stringify(msgParams));
     //webkit.messageHandlers.walletAddEthereumChain.postMessage({"name": "walletAddEthereumChain", "object": data, id: id})
   },
   walletSwitchEthereumChain: function (msgParams, cb) {
@@ -62,14 +62,14 @@ window.GemjarWallet.init(__rpcURL, {
     const { id = Math.floor((Math.random() * 100000) + 1) } = msgParams
     console.log("walletSwitchEthereumChain", msgParams)
     GemjarWallet.addCallback(id, cb)
-    alpha.walletSwitchEthereumChain(id, JSON.stringify(msgParams));
+    gem.walletSwitchEthereumChain(id, JSON.stringify(msgParams));
     //webkit.messageHandlers.walletSwitchEthereumChain.postMessage({"name": "walletSwitchEthereumChain", "object": data, id: id})
   },
   requestAccounts: function(cb) {
       id = Math.floor((Math.random() * 100000) + 1)
       console.log("requestAccounts", id)
       GemjarWallet.addCallback(id, cb)
-      alpha.requestAccounts(id);
+      gem.requestAccounts(id);
   },
   enable: function() {
       return new Promise(function(resolve, reject) {

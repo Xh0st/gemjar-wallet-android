@@ -76,7 +76,7 @@ public class JsInjectorClient {
 
     public String providerJs(Context context)
     {
-        return loadFile(context, R.raw.alphawallet_min);
+        return loadFile(context, R.raw.gemjarwallet_min);
     }
 
     String injectWeb3TokenInit(Context ctx, String view, String tokenContent, BigInteger tokenId)

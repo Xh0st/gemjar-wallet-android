@@ -233,8 +233,8 @@ public class RepositoriesModule {
 	@Provides
     AssetDefinitionService provideAssetDefinitionService(OkHttpClient okHttpClient, @ApplicationContext Context ctx, NotificationService notificationService, RealmManager realmManager,
 														 TokensService tokensService, TokenLocalSource tls, TransactionRepositoryType trt,
-                                                         GemjarWalletService alphaService) {
-		return new AssetDefinitionService(okHttpClient, ctx, notificationService, realmManager, tokensService, tls, trt, alphaService);
+                                                         GemjarWalletService gemService) {
+		return new AssetDefinitionService(okHttpClient, ctx, notificationService, realmManager, tokensService, tls, trt, gemService);
 	}
 
 	@Singleton

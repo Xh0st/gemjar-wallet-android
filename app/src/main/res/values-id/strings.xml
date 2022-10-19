@@ -1,5 +1,5 @@
 <resources>
-    // alphawallet
+    // gemjar
     <!-- String related to sending -->
     <string name="action_send">Kirim</string>
     <string name="action_send_tkn">Send %1$s</string>

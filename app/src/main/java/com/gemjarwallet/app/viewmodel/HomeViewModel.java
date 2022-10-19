@@ -530,19 +530,19 @@ public class HomeViewModel extends BaseViewModel {
         return preferenceRepository.getLastFragmentPage();
     }
 
-    public void tryToShowEmailPrompt(Context context, View successOverlay, Handler handler, Runnable onSuccessRunnable) {
-        if (preferenceRepository.getLaunchCount() == 4) {
-            EmailPromptView emailPromptView = new EmailPromptView(context, successOverlay, handler, onSuccessRunnable);
-            BottomSheetDialog emailPromptDialog = new BottomSheetDialog(context);
-            emailPromptDialog.setContentView(emailPromptView);
-            emailPromptDialog.setCancelable(true);
-            emailPromptDialog.setCanceledOnTouchOutside(true);
-            emailPromptView.setParentDialog(emailPromptDialog);
-            BottomSheetBehavior<View> behavior = BottomSheetBehavior.from((View) emailPromptView.getParent());
-            emailPromptDialog.setOnShowListener(dialog -> behavior.setPeekHeight(emailPromptView.getHeight()));
-            emailPromptDialog.show();
-        }
-    }
+    //public void tryToShowEmailPrompt(Context context, View successOverlay, Handler handler, Runnable onSuccessRunnable) {
+    //    if (preferenceRepository.getLaunchCount() == 4) {
+    //        EmailPromptView emailPromptView = new EmailPromptView(context, successOverlay, handler, onSuccessRunnable);
+    //        BottomSheetDialog emailPromptDialog = new BottomSheetDialog(context);
+    //        emailPromptDialog.setContentView(emailPromptView);
+    //        emailPromptDialog.setCancelable(true);
+    //        emailPromptDialog.setCanceledOnTouchOutside(true);
+    //        emailPromptView.setParentDialog(emailPromptDialog);
+    //        BottomSheetBehavior<View> behavior = BottomSheetBehavior.from((View) emailPromptView.getParent());
+    //        emailPromptDialog.setOnShowListener(dialog -> behavior.setPeekHeight(emailPromptView.getHeight()));
+    //        emailPromptDialog.show();
+    //    }
+    //}
 
     public void tryToShowWhatsNewDialog(Context context) {
         PackageInfo packageInfo;

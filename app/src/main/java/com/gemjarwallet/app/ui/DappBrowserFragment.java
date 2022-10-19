@@ -203,6 +203,7 @@ public class DappBrowserFragment extends BaseFragment implements OnSignTransacti
     private Wallet wallet;
     private NetworkInfo activeNetwork;
     private AWalletAlertDialog chainSwapDialog;
+    private AWalletAlertDialog reqDialog;
     private AWalletAlertDialog resultDialog;
     private DappBrowserSuggestionsAdapter adapter;
     private String loadOnInit; //Web3 needs to be fully set up and initialised before any dapp loading can be done
@@ -1286,6 +1287,25 @@ public class DappBrowserFragment extends BaseFragment implements OnSignTransacti
         //and additionally add a window.ethereum.setAddress function in init.js to set up addresses
         //together with this update, also need to track which websites have been given permission, and if they already have it (can probably get away with using SharedPrefs)
         //then automatically perform with step without a dialog (ie same as it does currently)
+        //String dappUrl = urlTv.getText().toString();
+        //if (!dappUrl)
+        //{
+        //    reqDialog = new AWalletAlertDialog(getActivity());
+        //    reqDialog.setTitle("Request Account Address");
+        //    reqDialog.setMessage(dappUrl + "requests your address. \nAuthorise?");
+        //    reqDialog.setButton(R.string.dialog_ok, v -> {
+        //        if (reqDialog.isShowing())
+        //            web3.onWalletActionSuccessful(callbackId, "[\"" + wallet.address + "\"]");
+        //            reqDialog.dismiss();
+        //    });
+        //    reqDialog.setSecondaryButton(R.string.action_cancel, v -> reqDialog.dismiss());
+        //    reqDialog.setCancelable(false);
+        //     reqDialog.show();
+        //}
+        //else
+        //{
+        //    web3.onWalletActionSuccessful(callbackId, "[\"" + wallet.address + "\"]");
+        //}
         web3.onWalletActionSuccessful(callbackId, "[\"" + wallet.address + "\"]");
     }
 

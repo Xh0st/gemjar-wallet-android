@@ -19,7 +19,7 @@ import static com.gemjarwallet.ethereum.EthereumNetworkBase.OPTIMISTIC_MAIN_ID;
 import static com.gemjarwallet.ethereum.EthereumNetworkBase.PHI_V2_MAIN_ID;
 import static com.gemjarwallet.ethereum.EthereumNetworkBase.POA_ID;
 import static com.gemjarwallet.ethereum.EthereumNetworkBase.POLYGON_ID;
-import static com.gemjarwallet.ethereum.EthereumNetworkBase.RINKEBY_ID;
+import static com.gemjarwallet.ethereum.EthereumNetworkBase.POLYGON_TEST_ID;
 import static org.web3j.protocol.core.methods.request.Transaction.createEthCallTransaction;
 
 import android.text.TextUtils;
@@ -78,9 +78,9 @@ import timber.log.Timber;
 
 public class TickerService
 {
-    private static final int UPDATE_TICKER_CYCLE = 5; //5 Minutes
+    private static final int UPDATE_TICKER_CYCLE = 1; //5 Minutes
     private static final String MEDIANIZER = "0x729D19f657BD0614b4985Cf1D82531c67569197B";
-    private static final String MARKET_ORACLE_CONTRACT = "0xf155a7eb4a2993c8cf08a76bca137ee9ac0a01d8";
+    private static final String MARKET_ORACLE_CONTRACT = "0xdAcAf435f241B1a062B021abEED9CA2F76F22F8D";
     private static final String CONTRACT_ADDR = "[CONTRACT_ADDR]";
     private static final String CHAIN_IDS = "[CHAIN_ID]";
     private static final String CURRENCY_TOKEN = "[CURRENCY]";
@@ -91,7 +91,7 @@ public class TickerService
     private static final String CURRENCY_CONV = "currency";
     private static final boolean ALLOW_UNVERIFIED_TICKERS = false; //allows verified:false tickers from DEX.GURU. Not recommended
     public static final long TICKER_TIMEOUT = DateUtils.WEEK_IN_MILLIS; //remove ticker if not seen in one week
-    public static final long TICKER_STALE_TIMEOUT = 15 * DateUtils.MINUTE_IN_MILLIS; //try to use market API if GemjarWallet market oracle not updating
+    public static final long TICKER_STALE_TIMEOUT = 30 * DateUtils.MINUTE_IN_MILLIS; //Use market API if gemjarwallet market oracle not updating
 
     private final OkHttpClient httpClient;
     private final PreferenceRepositoryType sharedPrefs;
@@ -132,8 +132,8 @@ public class TickerService
         sharedPrefs.commit();
 
         tickerUpdateTimer = Observable.interval(0, UPDATE_TICKER_CYCLE, TimeUnit.MINUTES)
-                    .doOnNext(l -> tickerUpdate())
-                    .subscribe();
+                .doOnNext(l -> tickerUpdate())
+                .subscribe();
     }
 
     private void tickerUpdate()
@@ -228,8 +228,8 @@ public class TickerService
         currentConversionRate = conversionRate;
         return Single.fromCallable(() -> {
             int tickerSize = 0;
-            final Web3j web3j = TokenRepository.getWeb3jService(RINKEBY_ID);
-            //fetch current tickers
+            final Web3j web3j = TokenRepository.getWeb3jService(POLYGON_TEST_ID);
+            //fetch current tickerscd
             Function function = getTickers();
             String responseValue = callSmartContractFunction(web3j, function, MARKET_ORACLE_CONTRACT);
             List<Type> responseValues = FunctionReturnDecoder.decode(responseValue, function.getOutputParameters());
@@ -274,7 +274,7 @@ public class TickerService
         for (TokenCardMeta tcm : erc20Tokens)
         {
             if (!dexGuruQuery.containsKey(tcm.tokenId) // don't include any token in the dexguru queue
-                && (!currentTickerMap.containsKey(tcm.getAddress())
+                    && (!currentTickerMap.containsKey(tcm.getAddress())
                     || currentTickerMap.get(tcm.getAddress()) < staleTime)) //include tokens who's tickers have gone stale
             {
                 lookupMap.put(tcm.getAddress().toLowerCase(), tcm);
@@ -660,12 +660,12 @@ public class TickerService
         if (ticker != null && address != null)
         {
             Single.fromCallable(() -> {
-                localSource.updateERC20Tickers(chainId, new HashMap<String, TokenTicker>()
-                {{ put(address, ticker); }});
-                return true;
-            }).subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
-                .subscribe().isDisposed();
+                        localSource.updateERC20Tickers(chainId, new HashMap<String, TokenTicker>()
+                        {{ put(address, ticker); }});
+                        return true;
+                    }).subscribeOn(Schedulers.io())
+                    .observeOn(Schedulers.io())
+                    .subscribe().isDisposed();
         }
     }
 

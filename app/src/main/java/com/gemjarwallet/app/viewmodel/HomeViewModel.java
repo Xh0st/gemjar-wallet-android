@@ -246,6 +246,8 @@ public class HomeViewModel extends BaseViewModel {
         importTokenRouter.open(activity, importData);
     }
 
+    public boolean getBiometricState() { return preferenceRepository.getBiometricState(); }
+
     public void restartHomeActivity(Context context)
     {
         //restart activity

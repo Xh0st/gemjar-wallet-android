@@ -63,9 +63,9 @@ public class App extends Application
 
         RxJavaPlugins.setErrorHandler(Timber::e);
 
-        // enable pin code for the application
-//		LockManager<CustomPinActivity> lockManager = LockManager.getInstance();
-//		lockManager.enableAppLock(this, CustomPinActivity.class);
-//		lockManager.getAppLock().setShouldShowForgot(false);
+        //enable pin code for the application
+        //LockManager<CustomPinActivity> lockManager = LockManager.getInstance();
+        //lockManager.enableAppLock(this, CustomPinActivity.class);
+
     }
 }

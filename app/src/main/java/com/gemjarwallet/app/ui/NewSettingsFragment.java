@@ -44,7 +44,7 @@ import com.gemjarwallet.app.interact.GenericWalletInteract;
 import com.gemjarwallet.app.util.LocaleUtils;
 import com.gemjarwallet.app.util.UpdateUtils;
 import com.gemjarwallet.app.viewmodel.NewSettingsViewModel;
-import com.gemjarwallet.app.widget.AWalletConfirmationDialog;
+import com.gemjarwallet.app.widget.AWalletAlertDialog;
 import com.gemjarwallet.app.widget.NotificationView;
 import com.gemjarwallet.app.widget.SettingsItemView;
 import com.google.android.material.card.MaterialCardView;
@@ -588,49 +588,56 @@ public class NewSettingsFragment extends BaseFragment
         // TODO Implementation
         if (!viewModel.getBiometricState())
         {
-            AWalletConfirmationDialog cDialog = new AWalletConfirmationDialog(getActivity());
-            cDialog.setTitle("Enable Passcode");
-            cDialog.setMediumText("Do you want to enable passcode protection");
-            cDialog.setPrimaryButtonText(R.string.dialog_ok);
-            cDialog.setPrimaryButtonListener(v ->
-            {
+            AWalletAlertDialog dialog = new AWalletAlertDialog(getActivity());
+            dialog.setTitle("Enable Passcode");
+            dialog.setMessage("Do you want to enable passcode protection?");
+            dialog.setIcon(AWalletAlertDialog.NONE);
+            dialog.setButtonText(R.string.dialog_ok);
+            dialog.setButtonListener(v1 -> {
                 onPasscodeEnable();
-                cDialog.dismiss();
+                dialog.dismiss();
             });
-            cDialog.setSecondaryButtonText(R.string.dialog_cancel_back);
-            cDialog.setSecondaryButtonListener(v ->
+            dialog.setSecondaryButtonText(R.string.dialog_cancel_back);
+            dialog.setSecondaryButtonListener(v ->
             {
-                cDialog.dismiss();
+                dialog.dismiss();
+                biometricToggle();
             });
-            cDialog.show();
+            dialog.show();
         } else {
-            AWalletConfirmationDialog cDialog = new AWalletConfirmationDialog(getActivity());
-            cDialog.setTitle("Disable Passcode");
-            cDialog.setMediumText("Do you want to disable passcode protection");
-            cDialog.setPrimaryButtonText(R.string.dialog_ok);
-            cDialog.setPrimaryButtonListener(v ->
-            {
+            AWalletAlertDialog dialog = new AWalletAlertDialog(getActivity());
+            dialog.setTitle("Disable Passcode");
+            dialog.setMessage("Do you want to disable passcode protection?");
+            dialog.setIcon(AWalletAlertDialog.NONE);
+            dialog.setButtonText(R.string.dialog_ok);
+            dialog.setButtonListener(v1 -> {
                 onPasscodeDisable();
-                cDialog.dismiss();
-        });
-            cDialog.setSecondaryButtonText(R.string.dialog_cancel_back);
-            cDialog.setSecondaryButtonListener(v ->
-            {
-                cDialog.dismiss();
+                dialog.dismiss();
             });
-            cDialog.show();
+            dialog.setSecondaryButtonText(R.string.dialog_cancel_back);
+            dialog.setSecondaryButtonListener(v ->
+            {
+                dialog.dismiss();
+                biometricToggle();
+            });
+            dialog.show();
         }
+    }
+
+    public void biometricToggle() {
+        biometricsSetting.setToggleState(viewModel.getBiometricState());
     }
 
     private void onPasscodeEnable()
     {
         viewModel.setBiometricState(biometricsSetting.getToggleState());
-
+        biometricToggle();
     }
 
     private void onPasscodeDisable()
     {
         viewModel.setBiometricState(biometricsSetting.getToggleState());
+        biometricToggle();
     }
 
     private void onSelectNetworksSettingClicked()

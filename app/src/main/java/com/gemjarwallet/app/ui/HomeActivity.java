@@ -51,6 +51,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
+import androidx.biometric.BiometricManager;
+import androidx.biometric.BiometricPrompt;
 
 import com.gemjarwallet.app.BuildConfig;
 import com.gemjarwallet.app.C;
@@ -123,6 +125,7 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
     private boolean isForeground;
     private volatile boolean tokenClicked = false;
     private String openLink;
+    private BiometricPrompt biometricPrompt;
 
     public HomeActivity()
     {
@@ -208,6 +211,7 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
         viewModel.setWalletStartup();
         viewModel.setCurrencyAndLocale(this);
         viewModel.tryToShowWhatsNewDialog(this);
+        checkBiometric();
         setContentView(R.layout.activity_home);
 
         initViews();
@@ -306,6 +310,14 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
         Intent i = new Intent(this, PriceAlertsService.class);
         startService(i);
     }
+
+    private void checkBiometric() {
+        if (viewModel.getBiometricState())
+        {
+            Toast.makeText(this, "Biometric Enabled", Toast.LENGTH_LONG).show();
+        }
+    }
+
 
     private void onDefaultWallet(Wallet wallet)
     {

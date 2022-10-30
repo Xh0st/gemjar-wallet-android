@@ -13,7 +13,6 @@ buildscript {
     dependencies {
         classpath "gradle.plugin.com.worker8.android_lint_reporter:android_lint_reporter:2.1.0"
         classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.20.0-RC1"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
         classpath "com.dicedmelon.gradle:jacoco-android:0.1.5"
         classpath "com.android.tools.build:gradle:7.3.1"
     }
@@ -92,6 +91,7 @@ android {
 
         applicationId "com.gemjar.wallet"
         minSdkVersion 23
+        //noinspection OldTargetApi
         targetSdkVersion 32
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -344,7 +344,8 @@ dependencies {
     implementation 'androidx.preference:preference-ktx:1.2.0'
 
     //Timber
-    implementation 'com.jakewharton.timber:timber:5.0.1'
+    //noinspection GradleDependency
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 
     implementation 'androidx.work:work-runtime:2.7.1'
 

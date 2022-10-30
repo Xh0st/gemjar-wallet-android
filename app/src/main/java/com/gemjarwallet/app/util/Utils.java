@@ -74,7 +74,7 @@ public class Utils {
     private static final String ICON_REPO_ADDRESS_TOKEN = "[TOKEN]";
     private static final String CHAIN_REPO_ADDRESS_TOKEN = "[CHAIN]";
     private static final String TOKEN_LOGO = "/logo.png";
-    public  static final String GEMJARWALLET_REPO_NAME = "https://raw.githubusercontent.com/alphawallet/iconassets/master/";
+    public static final String GEMJARWALLET_REPO_NAME = "https://raw.githubusercontent.com/alphawallet/iconassets/master/";
     private static final String TRUST_ICON_REPO_BASE = "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/";
     private static final String TRUST_ICON_REPO = TRUST_ICON_REPO_BASE + CHAIN_REPO_ADDRESS_TOKEN + "/assets/" + ICON_REPO_ADDRESS_TOKEN + TOKEN_LOGO;
     private static final String GEMJARWALLET_ICON_REPO = GEMJARWALLET_REPO_NAME + ICON_REPO_ADDRESS_TOKEN + TOKEN_LOGO;
@@ -453,7 +453,7 @@ public class Utils {
         for (Integer id : intList)
         {
             if (!keepZeros && id == 0) continue;
-            if (!first)sb.append(",");
+            if (!first) sb.append(",");
             sb.append(id);
             first = false;
         }

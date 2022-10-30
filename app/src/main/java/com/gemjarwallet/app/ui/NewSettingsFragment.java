@@ -43,6 +43,7 @@ import com.gemjarwallet.app.entity.WalletType;
 import com.gemjarwallet.app.interact.GenericWalletInteract;
 import com.gemjarwallet.app.util.LocaleUtils;
 import com.gemjarwallet.app.util.UpdateUtils;
+import com.gemjarwallet.app.util.Utils;
 import com.gemjarwallet.app.viewmodel.NewSettingsViewModel;
 import com.gemjarwallet.app.widget.AWalletAlertDialog;
 import com.gemjarwallet.app.widget.NotificationView;
@@ -414,14 +415,10 @@ public class NewSettingsFragment extends BaseFragment
         this.wallet = wallet;
         if (wallet.address != null)
         {
-            if (!wallet.ENSname.isEmpty())
-            {
-                changeWalletSetting.setSubtitle(wallet.ENSname + " | " + wallet.address);
-            }
-            else
-            {
-                changeWalletSetting.setSubtitle(wallet.address);
-            }
+            String walletAddressDisplay = wallet.ENSname.isEmpty() ? wallet.address
+                    : wallet.ENSname + " | " + Utils.formatAddress(wallet.address);
+
+            changeWalletSetting.setSubtitle(walletAddressDisplay);
         }
 
         switch (wallet.authLevel)

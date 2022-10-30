@@ -9,9 +9,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import static android.content.Context.CLIPBOARD_SERVICE;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
+import com.gemjarwallet.app.util.Utils;
 import com.gemjarwallet.app.R;
 import com.gemjarwallet.app.service.TickerService;
 
@@ -77,6 +82,33 @@ public class TokenInfoView extends LinearLayout
             TextView useView = getTextView(text.length());
             useView.setText(text);
         }
+    }
+
+    public void setCopyableValue(String text)
+    {
+        if (!TextUtils.isEmpty(text))
+        {
+            setVisibility(View.VISIBLE);
+            String display = text;
+            // If text is an instance of an address, format it; otherwise do nothing
+            if (Utils.isAddressValid(text))
+            {
+                display = Utils.formatAddress(text);
+            }
+            TextView useView = getTextView(display.length());
+            useView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_copy, 0);
+            useView.setText(display);
+            setCopyListener(useView, label.getText(), text);
+        }
+    }
+
+    private void setCopyListener(TextView textView, CharSequence clipLabel, CharSequence clipValue)
+    {
+        textView.setOnClickListener(view -> {
+            ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(CLIPBOARD_SERVICE);
+            clipboard.setPrimaryClip(ClipData.newPlainText(clipLabel, clipValue));
+            Toast.makeText(getContext(), R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
+        });
     }
 
     public void setCurrencyValue(double v)

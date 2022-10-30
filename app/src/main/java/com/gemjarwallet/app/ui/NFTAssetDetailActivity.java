@@ -310,7 +310,7 @@ public class NFTAssetDetailActivity extends BaseActivity implements StandardFunc
 
         tivNetwork.setValue(token.getNetworkName());
 
-        tivContractAddress.setValue(Utils.formatAddress(token.tokenInfo.address));
+        tivContractAddress.setCopyableValue(token.tokenInfo.address);
     }
 
     private void loadAssetFromMetadata(NFTAsset asset)

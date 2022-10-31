@@ -86,8 +86,8 @@ android {
         }
     }
     defaultConfig {
-        versionCode 204
-        versionName "3.60"
+        versionCode 205
+        versionName "3.61"
 
         applicationId "com.gemjar.wallet"
         minSdkVersion 23
